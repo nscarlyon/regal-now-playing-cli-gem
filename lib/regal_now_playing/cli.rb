@@ -2,24 +2,23 @@
 class RegalNowPlaying::CLI
 
   def call
-    RegalNowPlaying::Scraper.new.make_movies
     list_movies
     menu
-    "Goodbye!"
+    puts "Goodbye!"
   end
 
   def list_movies
     # html http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage
     puts "Here are the movies showing today at Regal Medlock Crossing Stadium 18 & RPX:"
-    puts "movies here"
+    RegalNowPlaying::Scraper.new.make_movies
   end
 
   def menu
     puts "Enter the number of the movie you would like more information on or type exit?"
 
-    while input != "exit"
       input = gets.strip.downcase
-      movie = RegalNowPlaying::Movie.find(input.to_i)
+    while input != "exit"
+      movie = RegalNowPlaying::Movie.new
       print_movie(movie)
 
       puts ""
@@ -37,12 +36,12 @@ class RegalNowPlaying::CLI
 
     def print_movie(movie)
         puts ""
-        puts "----------- #{movie.name} - #{movie.position} -----------"
+        puts "----------- #{movie.name} ------------"
         puts ""
-        puts "Rating:           #{movie.rating}"
-        puts "Runtime:          #{movie.runtime}"
-        puts "Genre:      #{movie.genre}"
-        puts "More Info:      #{movie.info}"
+  #      puts "Rating:           #{movie.rating}"
+  #      puts "Runtime:          #{movie.runtime}"
+  #      puts "Genre:      #{movie.genre}"
+  #      puts "More Info:      #{movie.info}"
       end
 
 end
