@@ -10,7 +10,9 @@ class RegalNowPlaying::CLI
   def list_movies
     # html http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage
     puts "Here are the movies showing today at Regal Medlock Crossing Stadium 18 & RPX:"
+    puts ""
     RegalNowPlaying::Scraper.new.make_movies
+    puts ""
   end
 
   def menu
@@ -27,6 +29,7 @@ class RegalNowPlaying::CLI
 
       if input == "y"
         list_movies
+        menu
       else
         puts "Goodbye! Have a nice day!"
         exit
@@ -38,10 +41,10 @@ class RegalNowPlaying::CLI
         puts ""
         puts "----------- #{movie.name} ------------"
         puts ""
-  #      puts "Rating:           #{movie.rating}"
-  #      puts "Runtime:          #{movie.runtime}"
-  #      puts "Genre:      #{movie.genre}"
-  #      puts "More Info:      #{movie.info}"
+        puts "Rating: #{movie.rating}"
+        puts "Runtime: #{movie.runtime}"
+        puts "Genre: #{movie.genre}"
+        puts "More Info: #{movie.info}"
       end
 
 end
