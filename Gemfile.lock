@@ -6,7 +6,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    coderay (1.1.0)
+    coderay (1.1.1)
     diff-lcs (1.2.5)
     method_source (0.8.2)
     mini_portile2 (2.0.0)
@@ -40,8 +40,8 @@ DEPENDENCIES
   nokogiri
   pry
   rake (~> 10.0)
-  rspec
   regal-now-playing!
+  rspec
 
 BUNDLED WITH
-   1.10.6
+   1.12.5

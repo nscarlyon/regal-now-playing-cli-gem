@@ -4,8 +4,8 @@ class RegalNowPlaying::Movie
 
   @@all = []
 
-  def initialize(name = "name", rating = "pg", runtime = "1 hr", genre = "comedy", info = "more info")
-    @name = name
+  def initialize(title = "title", rating = "pg", runtime = "1 hr", genre = "comedy", info = "more info")
+    @title = title
     @rating = rating
     @runtime = runtime
     @genre = genre

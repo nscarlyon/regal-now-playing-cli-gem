@@ -39,7 +39,7 @@ class RegalNowPlaying::CLI
 
     def print_movie(movie)
         puts ""
-        puts "----------- #{movie.name} ------------"
+        puts "----------- #{movie.title} ------------"
         puts ""
         puts "Rating: #{movie.rating}"
         puts "Runtime: #{movie.runtime}"
