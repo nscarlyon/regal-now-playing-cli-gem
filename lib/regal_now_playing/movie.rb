@@ -4,13 +4,12 @@ class RegalNowPlaying::Movie
 
   @@all = []
 
-  def initialize(title = nil, index = nil, rating = nil, runtime = nil, genre = nil, showtimes = nil)
+  def initialize(title = nil, index = nil, rating = nil, runtime = nil, genre = nil)
     @title = title
     @index = index
     @rating = rating
     @runtime = runtime
     @genre = genre
-    @showtimes = showtimes
     @@all << self
   end
 
@@ -32,8 +31,10 @@ class RegalNowPlaying::Movie
     @doc = Nokogiri::HTML(open("http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage"))
   end
 
-  def showtimes
-    @showtimes ||= doc.css("div.showtimes-times")[0].text
+  def showtimes(input)
+    doc = Nokogiri::HTML(open("http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage"))
+    @showtimes ||= doc.css("div.showtimes-times")[input-1].text
+    puts "#{showtimes}"
   end
 
   def rating_and_runtime
