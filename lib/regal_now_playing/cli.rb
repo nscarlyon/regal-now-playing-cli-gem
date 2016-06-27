@@ -19,8 +19,9 @@ class RegalNowPlaying::CLI
     puts "Enter the number of the movie you would like more information on or type exit?"
 
       input = gets.strip.downcase
+
     while input != "exit"
-      movie = RegalNowPlaying::Movie.new
+      movie = RegalNowPlaying::Movie.new_from_index(input)
       print_movie(movie)
 
       puts ""
@@ -39,12 +40,13 @@ class RegalNowPlaying::CLI
 
     def print_movie(movie)
         puts ""
-        puts "----------- #{movie.title} ------------"
+    #    puts "----------- #{movie.title} ------------"
         puts ""
-        puts "Rating: #{movie.rating}"
-        puts "Runtime: #{movie.runtime}"
-        puts "Genre: #{movie.genre}"
-        puts "More Info: #{movie.info}"
+        puts "Showtimes: #{movie.showtimes}"
+#        puts "Rating: #{movie.rating}"
+#        puts "Runtime: #{movie.runtime}"
+#        puts "Genre: #{movie.genre}"
+#        puts "More Info: #{movie.info}"
       end
 
 end
