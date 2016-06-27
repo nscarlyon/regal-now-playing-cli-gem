@@ -2,11 +2,11 @@ require 'pry'
 
 class RegalNowPlaying::Scraper
 
-attr_accessor :title, :rating
+attr_accessor :title, :rating, :genre
 
 def self.get_page
   doc = Nokogiri::HTML(open("http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage"))
-  # binding.pry
+   binding.pry
 end
 
   def make_movies
@@ -17,12 +17,17 @@ end
         puts "#{i+1}. #{t}"
       end
 
-      rating = doc.css("div.showtimes-movie-rating-runtime").map(&:text)
-        rating.each do |r|
-        puts "#{r}"
+      showtimes = doc.css("div.showtimes-times")[0].text
+      print "#{showtimes}"
+
+    #  rating = doc.css("div.showtimes-movie-rating-runtime").text.split(", ")
+    #    rating.each do |r|
+    #    print "#{r}"
+
+    #  genre = doc.css("div.showtimes-movie-genre").text
+    #    puts "#{genre}"
       end
 
-  end
 
 # movie times = doc.css("time.timeInfo").text
 #
