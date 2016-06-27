@@ -13,16 +13,16 @@ end
     @doc = Nokogiri::HTML(open("http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage"))
     title = doc.css("a.dark.showtimes-movie-title").map(&:text)
     genres = []
-    genre = doc.css("div.showtimes-movie-genre").text.split
+    genre = doc.css("div.showtimes-movie-genre").map(&:text)
       genre.each_with_index do |g, num|
-        genres << {num: g}
+        gen = {num: g}
+        genres << gen
       end
 
       title.each_with_index do |t, i|
-
-        puts "#{i+1}. #{t} --------- #{genres[i].values.join}-----------"
+        puts "#{i+1}. #{t} ----- #{genres[i].values.join.gsub(/\W{3,}/, "")} ----- "
       end
-    end
+    end                         
 
     def showtimes(input)
       showtimes = doc.css("div.showtimes-times")[input].text
@@ -31,3 +31,4 @@ end
 
 
 end #ends class
+end
