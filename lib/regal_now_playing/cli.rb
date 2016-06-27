@@ -2,8 +2,10 @@
 class RegalNowPlaying::CLI
 
   def call
-    puts "Welcome to the Regal Now Playing Gem"
+    puts "Welcome to the Regal Now Playing CLI Gem"
+    puts ""
     start
+    options
   end
 
   def start
@@ -14,33 +16,22 @@ class RegalNowPlaying::CLI
     movies.make_movies
     puts ""
 
-    puts "Enter the number of the movie you would like more information on or type exit?"
+    puts "Enter the number of the movie you would like more information on:"
     input = gets.strip.to_i - 1
     movies.showtimes(input)
+end
 
+def options
+    puts ""
+    puts "Enter Y, if you would like to pick another movie."
+    puts "Enter N, if you would like to exit."
+    input = gets.strip.downcase
 
-  end
-
-  def menu
-
-
-
-    while input != "exit"
-    #  movie = RegalNowPlaying::Movie.new
-    #  movie.showtimes(input)
-    #  print_movie(movie)
-
-      puts ""
-      puts "Would you like to see another movie? Enter Y or N:"
-      input = gets.strip.downcase
-
-      if input == "y"
-        list_movies
-        menu
-      else
-        puts "Goodbye! Have a nice day!"
-        exit
-      end
+    if input == "y"
+      start
+    else
+      puts "Goodbye! Have a nice day!"
+      exit
     end
   end
 

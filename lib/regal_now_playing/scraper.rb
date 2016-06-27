@@ -14,29 +14,26 @@ end
     title = doc.css("a.dark.showtimes-movie-title").map(&:text)
     genres = []
     genre = doc.css("div.showtimes-movie-genre").map(&:text)
-      genre.each_with_index do |g, num|
+      genre.each_with_index { |g, num|
         gen = {num: g}
         genres << gen
-      end
+      }
 
 ratings = []
       rating = doc.css("div.showtimes-movie-rating-runtime").map(&:text)
-        rating.each_with_index do |r, num|
+        rating.each_with_index { |r, num|
           rat = {num: r}
           ratings << rat
-      end
+      }
 
-
-      title.each_with_index do |t, i|
+      title.each_with_index { |t, i|
         puts "#{i+1}. #{t} ----- #{genres[i].values.join.gsub(/\W{3,}/, "")} ----- #{ratings[i].values.join.gsub(/\W{3,}/, " ")}"
-      end
-    end                         
+      }
+    end 
 
     def showtimes(input)
       showtimes = doc.css("div.showtimes-times")[input].text
        print "#{showtimes}"
      end
-
-
-end #ends class
+   end
 end
