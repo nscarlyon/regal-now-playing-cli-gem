@@ -19,8 +19,16 @@ end
         genres << gen
       end
 
+ratings = []
+      rating = doc.css("div.showtimes-movie-rating-runtime").map(&:text)
+        rating.each_with_index do |r, num|
+          rat = {num: r}
+          ratings << rat
+      end
+
+
       title.each_with_index do |t, i|
-        puts "#{i+1}. #{t} ----- #{genres[i].values.join.gsub(/\W{3,}/, "")} ----- "
+        puts "#{i+1}. #{t} ----- #{genres[i].values.join.gsub(/\W{3,}/, "")} ----- #{ratings[i].values.join.gsub(/\W{3,}/, " ")}"
       end
     end                         
 
