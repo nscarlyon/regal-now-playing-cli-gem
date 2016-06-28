@@ -35,6 +35,9 @@ end
       genre = doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")
       showtimes = doc.css("div.showtimes-times")[input].text.gsub(/\W{3,}/, " ")
       rating = doc.css("div.showtimes-movie-rating-runtime")[input].text.gsub(/\W{3,}/, " ")
+      title = doc.css("a.dark.showtimes-movie-title")[input].text
+
+      puts "Title: #{title}"
       puts "Genre: #{genre}"
       puts "Rating & Runtime: #{rating}"
       puts ""
