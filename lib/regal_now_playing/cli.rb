@@ -16,10 +16,10 @@ class RegalNowPlaying::CLI
     end
 
     puts ""
-    movies = RegalNowPlaying::Movie.new
-    puts "Enter the number of the movie you would like more information on:"
-    input = gets.strip.to_i - 1
-    movies.info(input)
+    print "Enter the number of the movie you would like more information on:"
+    index = gets.strip.to_i - 1
+    movies = RegalNowPlaying::Movie.new(index)
+    print_movie(movies)
 
     puts ""
     puts "Enter Y, if you would like to pick another movie."
@@ -34,15 +34,8 @@ class RegalNowPlaying::CLI
     end
   end
 
+  def print_movie(movies)
+    puts ""
+    puts "Title: #{movies.title}"
+  end
 end
-
-  #  def print_movie(movie)
-    #    puts ""
-    #    puts "----------- #{movie.title} ------------"
-    #    puts ""
-        #        puts "Genre: #{movie.genre}"
-        #        puts "Rating and Runtime: #{movie.rating}"
-    #    puts "----------- #{movie.title} ------------"
-        # {movie.showtimes}
-
-    #  end

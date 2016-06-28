@@ -1,15 +1,12 @@
 class RegalNowPlaying::Movie
 
-  attr_accessor :title, :rating_and_runtime, :genre, :showtimes
+  attr_accessor :title, :rating_and_runtime, :genre, :showtimes, :index
   attr_reader :doc
 
 @@all = []
 
-  def initialize(title =nil, rating_and_runtime = nil, showtimes = nil, genre = nil)
-    @title = title
-    @rating_and_runtime = rating_and_runtime
-    @genre = genre
-    @showtimes = showtimes
+  def initialize(index = nil)
+    @index = index
   end
 
   def self.all
@@ -28,10 +25,10 @@ class RegalNowPlaying::Movie
     doc = Nokogiri::HTML(open("http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage"))
     titles ||= doc.css("a.dark.showtimes-movie-title").map(&:text)
   end
-      #  title.each_with_index { |t, i|
-      #    puts "#{i+1}. #{t}"
-      #  }
 
+  def title
+    @title ||= doc.css("a.dark.showtimes-movie-title")[self.index].text
+  end
 
       def info(input)
         genre ||= doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")
