@@ -29,10 +29,12 @@ end
       title.each_with_index { |t, i|
         puts "#{i+1}. #{t} ----- #{genres[i].values.join.gsub(/\W{3,}/, "")} ----- #{ratings[i].values.join.gsub(/\W{3,}/, " ")}"
       }
-  
+
 
     def info(input)
       showtimes = doc.css("div.showtimes-times")[input].text
+      genre = doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")
+      print "Genre: #{genre}"
       print "#{showtimes}"
      end
 end
