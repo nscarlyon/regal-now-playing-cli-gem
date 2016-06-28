@@ -2,7 +2,7 @@
 class RegalNowPlaying::CLI
 
   def call
-    puts "Welcome to the Regal Now Playing CLI Gem"
+    puts "Welcome to the Regal Now Playing CLI Gem!"
     puts ""
     start
   end
