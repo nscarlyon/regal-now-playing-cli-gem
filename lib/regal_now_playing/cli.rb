@@ -11,10 +11,12 @@ class RegalNowPlaying::CLI
     # html http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage
     puts "Here are the movies showing today at Regal Medlock Crossing Stadium 18 & RPX:"
     puts ""
-    movies = RegalNowPlaying::Scraper.new
-    movies.make_movies
-    puts ""
+    RegalNowPlaying::Movie.scrape_titles.each_with_index do |t, i|
+      puts "#{i+1}. #{t}"
+    end
 
+    puts ""
+    movies = RegalNowPlaying::Movie.new
     puts "Enter the number of the movie you would like more information on:"
     input = gets.strip.to_i - 1
     movies.info(input)
