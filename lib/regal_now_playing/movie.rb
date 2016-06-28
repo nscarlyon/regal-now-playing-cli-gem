@@ -30,18 +30,23 @@ class RegalNowPlaying::Movie
     @title ||= doc.css("a.dark.showtimes-movie-title")[self.index].text
   end
 
-      def info(input)
-        genre ||= doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")
-        showtimes ||= doc.css("div.showtimes-times")[input].text.gsub(/\W{3,}/, " ")
-        rating_and_runtime ||= doc.css("div.showtimes-movie-rating-runtime")[input].text.gsub(/\W{3,}/, " ")
-        title ||= doc.css("a.dark.showtimes-movie-title")[input].text
+  def genre
+    @genre ||= doc.css("div.showtimes-movie-genre")[self.index].text.gsub(/\W{3,}/, " ") 
+  end
 
-        puts ""
-        puts "Title: #{title}"
-        puts "Genre: #{genre}"
-        puts "Rating & Runtime: #{rating_and_runtime}"
-        puts ""
-        puts "------------Showtimes------------"
-        puts " -#{showtimes}- "
-       end
+
+
+    #  def info(input)
+    #    genre ||= doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")
+    #    showtimes ||= doc.css("div.showtimes-times")[input].text.gsub(/\W{3,}/, " ")
+    #    rating_and_runtime ||= doc.css("div.showtimes-movie-rating-runtime")[input].text.gsub(/\W{3,}/, " ")
+
+    #    puts ""
+    #    puts "Title: #{title}"
+    #    puts "Genre: #{genre}"
+    #    puts "Rating & Runtime: #{rating_and_runtime}"
+    #    puts ""
+    #    puts "------------Showtimes------------"
+    #    puts " -#{showtimes}- "
+    #   end
   end
