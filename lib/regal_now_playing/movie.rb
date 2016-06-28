@@ -38,6 +38,10 @@ class RegalNowPlaying::Movie
     @rating_and_runtime ||= doc.css("div.showtimes-movie-rating-runtime")[index].text.gsub(/\W{3,}/, " ")
   end
 
+  def showtimes
+    @showtimes ||= doc.css("div.showtimes-times")[index].text.gsub(/\W{3,}/, " ")
+  end
+
 
     #  def info(input)
     #    genre ||= doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")

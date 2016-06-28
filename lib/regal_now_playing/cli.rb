@@ -39,6 +39,9 @@ class RegalNowPlaying::CLI
     puts "Title: #{movies.title}"
     puts "Genre: #{movies.genre}"
     puts "Rating & Runtime: #{movies.rating_and_runtime}"
+    puts ""
+    puts "------------Showtimes------------"
+    puts " -#{movies.showtimes}- "
 
   end
 end
