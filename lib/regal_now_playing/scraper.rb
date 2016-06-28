@@ -33,13 +33,13 @@ end
 
     def info(input)
       genre = doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")
-      showtimes = doc.css("div.showtimes-times")[input].text
+      showtimes = doc.css("div.showtimes-times")[input].text.gsub(/\W{3,}/, " ")
       rating = doc.css("div.showtimes-movie-rating-runtime")[input].text.gsub(/\W{3,}/, " ")
       puts "Genre: #{genre}"
       puts "Rating & Runtime: #{rating}"
       puts ""
-      print "---------Showtimes--------"
-      print "#{showtimes}"
+      puts "------------Showtimes------------"
+      puts " -#{showtimes}- "
      end
 end
 end
