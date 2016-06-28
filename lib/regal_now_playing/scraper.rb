@@ -19,7 +19,7 @@ end
         genres << gen
       }
 
-ratings = []
+      ratings = []
       rating = doc.css("div.showtimes-movie-rating-runtime").map(&:text)
         rating.each_with_index { |r, num|
           rat = {num: r}
@@ -29,11 +29,11 @@ ratings = []
       title.each_with_index { |t, i|
         puts "#{i+1}. #{t} ----- #{genres[i].values.join.gsub(/\W{3,}/, "")} ----- #{ratings[i].values.join.gsub(/\W{3,}/, " ")}"
       }
-    end 
+  
 
-    def showtimes(input)
+    def info(input)
       showtimes = doc.css("div.showtimes-times")[input].text
-       print "#{showtimes}"
+      print "#{showtimes}"
      end
-   end
+end
 end

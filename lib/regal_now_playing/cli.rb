@@ -5,7 +5,6 @@ class RegalNowPlaying::CLI
     puts "Welcome to the Regal Now Playing CLI Gem"
     puts ""
     start
-    options
   end
 
   def start
@@ -18,10 +17,8 @@ class RegalNowPlaying::CLI
 
     puts "Enter the number of the movie you would like more information on:"
     input = gets.strip.to_i - 1
-    movies.showtimes(input)
-end
+    movies.info(input)
 
-def options
     puts ""
     puts "Enter Y, if you would like to pick another movie."
     puts "Enter N, if you would like to exit."
@@ -35,15 +32,15 @@ def options
     end
   end
 
-    def print_movie(movie)
-        puts ""
-    #    puts "----------- #{movie.title} ------------"
-        puts ""
-        puts "Showtimes: #{movie.showtimes}"
-#        puts "Rating: #{movie.rating}"
-#        puts "Runtime: #{movie.runtime}"
-#        puts "Genre: #{movie.genre}"
-#        puts "More Info: #{movie.info}"
-      end
-
 end
+
+  #  def print_movie(movie)
+    #    puts ""
+    #    puts "----------- #{movie.title} ------------"
+    #    puts ""
+        #        puts "Genre: #{movie.genre}"
+        #        puts "Rating and Runtime: #{movie.rating}"
+    #    puts "----------- #{movie.title} ------------"
+        # {movie.showtimes}
+
+    #  end
