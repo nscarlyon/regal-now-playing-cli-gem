@@ -8,7 +8,6 @@ class RegalNowPlaying::CLI
   end
 
   def start
-    # html http://www.fandango.com/regalmedlockcrossingstadium1826rpx_aamem/theaterpage
     puts "Here are the movies showing today at Regal Medlock Crossing Stadium 18 & RPX:"
     puts ""
     RegalNowPlaying::Movie.scrape_titles.each_with_index do |t, i|
@@ -42,6 +41,5 @@ class RegalNowPlaying::CLI
     puts ""
     puts "------------Showtimes------------"
     puts " -#{movies.showtimes}- "
-
-  end
+    end
 end

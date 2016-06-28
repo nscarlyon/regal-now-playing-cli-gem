@@ -3,18 +3,8 @@ class RegalNowPlaying::Movie
   attr_accessor :title, :rating_and_runtime, :genre, :showtimes, :index
   attr_reader :doc
 
-@@all = []
-
   def initialize(index = nil)
     @index = index
-  end
-
-  def self.all
-    @@all ||= scrape_titles
-  end
-
-  def self.find(id)
-    self.all[id-1]
   end
 
   def doc
@@ -27,11 +17,11 @@ class RegalNowPlaying::Movie
   end
 
   def title
-    @title ||= doc.css("a.dark.showtimes-movie-title")[self.index].text
+    @title ||= doc.css("a.dark.showtimes-movie-title")[index].text
   end
 
   def genre
-    @genre ||= doc.css("div.showtimes-movie-genre")[self.index].text.gsub(/\W{3,}/, " ")
+    @genre ||= doc.css("div.showtimes-movie-genre")[index].text.gsub(/\W{3,}/, " ")
   end
 
   def rating_and_runtime
@@ -42,18 +32,4 @@ class RegalNowPlaying::Movie
     @showtimes ||= doc.css("div.showtimes-times")[index].text.gsub(/\W{3,}/, " ")
   end
 
-
-    #  def info(input)
-    #    genre ||= doc.css("div.showtimes-movie-genre")[input].text.gsub(/\W{3,}/, " ")
-    #    showtimes ||= doc.css("div.showtimes-times")[input].text.gsub(/\W{3,}/, " ")
-    #    rating_and_runtime ||= doc.css("div.showtimes-movie-rating-runtime")[input].text.gsub(/\W{3,}/, " ")
-
-    #    puts ""
-    #    puts "Title: #{title}"
-    #    puts "Genre: #{genre}"
-    #    puts "Rating & Runtime: #{rating_and_runtime}"
-    #    puts ""
-    #    puts "------------Showtimes------------"
-    #    puts " -#{showtimes}- "
-    #   end
-  end
+end
