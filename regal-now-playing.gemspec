@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = "Provides details on movies"
   s.authors     = ["Natasha Carlyon"]
   s.email       = 'natasha.carlyon@gmail.com'
-  s.files       = ["lib/regal_now_playing.rb", "lib/regal_now_playing/cli.rb", "lib/regal_now_playing/scraper.rb", "lib/regal_now_playing/movie.rb", "config/environment.rb"]
+  s.files       = ["lib/regal_now_playing.rb", "lib/regal_now_playing/cli.rb", "lib/regal_now_playing/movie.rb", "config/environment.rb"]
   s.license     = 'MIT'
   s.executables << 'regal-now-playing'
 
